@@ -14,11 +14,11 @@
     <body>
         <div id="root">
             <div class="container">
-                <h2>Bollflix</h2>
+                <h2>Boolflix</h2>
                 <!-- search -->
                 <div class="search">
-                    <input type="text" name="" value="">
-                    <button type="button" name="button"></button>
+                    <input type="search" name="" value="" v-model="ricercaUtente" v-on:keyup.enter="ricercaFilm()" placeholder="Scrivi il titolo di un film">
+                    <button type="button" name="button" @click="ricercaFilm()">Vai!</button>
                 </div>
                 <!-- cards -->
                 <div class="cards">
