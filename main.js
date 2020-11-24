@@ -1,10 +1,6 @@
-// MILESTONE 1
-// Creare un layout di base con una barra di ricerca composta da un input e un pulsante. Quando l'utente clicca sul pulsante, facciamo una chiamata all'API https://api.themoviedb.org/3/search/movie ricordandoci di passare la nostra API key e la query di ricerca, ossia il testo inserito dall'utente nell'input. <-- OK
-// Con i risultati che riceviamo, visualizziamo in pagina una card per ogni film, stampando per ciascuno:
-// titolo
-// titolo in lingua originale
-// lingua originale
-// voto
+// MILESTONE 2
+// La seconda milestone è a sua volta suddivisa in 3 punti:
+// 1- sostituire il voto numerico su base 10 in un voto su base 5 e visualizzare in totale 5 stelline, di cui tante piene quanto è il voto arrotondato (non gestiamo stelline a metà). Ad esempio, se il voto è 8.2, dobbiamo visualizzare 4 stelline piene e 1 stellina vuota (in totale sempre 5)
 
 var app = new Vue ({
     el: '#root',
@@ -28,6 +24,12 @@ var app = new Vue ({
             }
         }
     },
+
+    // stelle da 10 a 5 ---> diviso 2
+    starAverage (vote) {
+        return Math.round(vote/2);
+    },
+
     // axios fuori da mounted e dentro methods
     mounted() {
     }

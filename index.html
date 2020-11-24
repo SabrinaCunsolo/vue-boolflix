@@ -10,6 +10,8 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <!-- font -->
         <link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <!-- fontawesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     </head>
     <body>
         <div id="root">
@@ -26,6 +28,12 @@
                     <li> Titolo in lingua originale: {{ film.original_title }} </li>
                     <li> Lingua originale: {{ film.original_language }} </li>
                     <li> Voto: {{ film.vote_average }} </li>
+                    <li>
+                        <div class="stars">
+                            <i class="fas fa-star" v-if="starAverage(film.vote_average)" v-for="star in starAverage(film.vote_average)"></i>
+                            <i class="far fa-star" v-if="starAverage(film.vote_average)" v-for="star in starAverage(film.vote_average)"></i>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
