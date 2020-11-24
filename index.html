@@ -21,9 +21,12 @@
                     <button type="button" name="button" @click="ricercaFilm()">Vai!</button>
                 </div>
                 <!-- cards -->
-                <div class="cards">
-
-                </div>
+                <ul class="cards" v-for="film in arrayRicerca">
+                    <li> Titolo: {{ film.title }} </li>
+                    <li> Titolo in lingua originale: {{ film.original_title }} </li>
+                    <li> Lingua originale: {{ film.original_language }} </li>
+                    <li> Voto: {{ film.vote_average }} </li>
+                </ul>
             </div>
         </div>
         <!-- js -->
