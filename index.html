@@ -19,7 +19,7 @@
                 <h2>Boolflix</h2>
                 <!-- search -->
                 <div class="search">
-                    <input type="search" name="" value="" v-model="ricercaUtente" v-on:keyup.enter="ricercaFilm()" placeholder="Scrivi il titolo di un film">
+                    <input type="search" name="" value="" v-model="ricercaUtente" @keyup.enter="ricercaFilm()" placeholder="Scrivi il titolo di un film">
                     <button type="button" name="button" @click="ricercaFilm()">Vai!</button>
                 </div>
                 <!-- cards -->
@@ -28,11 +28,9 @@
                     <li> Titolo in lingua originale: {{ film.original_title }} </li>
                     <li> Lingua originale: {{ film.original_language }} </li>
                     <li> Voto: {{ film.vote_average }} </li>
-                    <li>
-                        <div class="stars">
-                            <i class="fas fa-star" v-if="starAverage(film.vote_average)" v-for="star in starAverage(film.vote_average)"></i>
-                            <i class="far fa-star" v-if="starAverage(film.vote_average)" v-for="star in starAverage(film.vote_average)"></i>
-                        </div>
+                    <li class="star">
+                            <i class="fas fa-star" v-for="star in film.vote_average"></i>
+                            <i class="far fa-star" v-for=" star in (starAverage - film.vote_average)"></i>
                     </li>
                 </ul>
             </div>

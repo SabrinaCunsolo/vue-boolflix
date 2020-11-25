@@ -1,12 +1,13 @@
 // MILESTONE 2
-// La seconda milestone è a sua volta suddivisa in 3 punti:
-// 1- sostituire il voto numerico su base 10 in un voto su base 5 e visualizzare in totale 5 stelline, di cui tante piene quanto è il voto arrotondato (non gestiamo stelline a metà). Ad esempio, se il voto è 8.2, dobbiamo visualizzare 4 stelline piene e 1 stellina vuota (in totale sempre 5)
+// 2- sostituire la lingua con una bandierina che identifica il paese.
+// Suggerimento: scarichiamo una manciata di bandierine relative alle lingue che vogliamo gestire (attenzione che la lingua è "en", non "us" o "uk" :wink: ). Quindi andremo ad inserire solamente le bandierine che sappiamo di avere, mentre per le altre lingue di cui non abbiamo previsto la bandierina, lasciamo il codice della lingua testuale
 
 var app = new Vue ({
     el: '#root',
     data: {
         ricercaUtente: '',
         arrayRicerca: [],
+        starAverage: 5
     },
     methods: {
         ricercaFilm () {
@@ -18,17 +19,22 @@ var app = new Vue ({
                     }
                 }).then((results) => {
                     // console.log(results.data.results);
-
                     this.arrayRicerca = results.data.results
+
+                    this.arrayRicerca.forEach((film) => {
+                        film.vote_average = Math.round(film.vote_average / 2);
+                        // console.log(film.vote_average);
+                         // ok, voti / 2
+                    })
                 });
             }
         }
     },
 
     // stelle da 10 a 5 ---> diviso 2
-    starAverage (vote) {
-        return Math.round(vote/2);
-    },
+    // starAverage (vote) {
+    //     return Math.round(vote/2);
+    // },
 
     // axios fuori da mounted e dentro methods
     mounted() {
