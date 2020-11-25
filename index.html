@@ -26,8 +26,11 @@
                 <ul class="cards" v-for="film in arrayRicerca">
                     <li> Titolo: {{ film.title }} </li>
                     <li> Titolo in lingua originale: {{ film.original_title }} </li>
-                    <li> Lingua originale: {{ film.original_language }} </li>
+                    <!-- <li> Lingua originale: {{ film.original_language }} </li> -->
+                    <!-- se a img/ e .png metto "" non si visualizza lingua quando non presente bandiera -->
+                    <li class="flags"><img :src=" 'img/' + film.original_language + '.png' " :alt="film.original_language"></li>
                     <li> Voto: {{ film.vote_average }} </li>
+                    <!-- migliorare visualizzaz stelle -->
                     <li class="star">
                             <i class="fas fa-star" v-for="star in film.vote_average"></i>
                             <i class="far fa-star" v-for=" star in (starAverage - film.vote_average)"></i>

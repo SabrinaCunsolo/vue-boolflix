@@ -24,17 +24,13 @@ var app = new Vue ({
                     this.arrayRicerca.forEach((film) => {
                         film.vote_average = Math.round(film.vote_average / 2);
                         // console.log(film.vote_average);
-                         // ok, voti / 2
+                        
                     })
                 });
             }
         }
     },
 
-    // stelle da 10 a 5 ---> diviso 2
-    // starAverage (vote) {
-    //     return Math.round(vote/2);
-    // },
 
     // axios fuori da mounted e dentro methods
     mounted() {

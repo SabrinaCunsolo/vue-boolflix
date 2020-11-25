@@ -14,3 +14,11 @@ body {
     border: 1px solid black;
     margin: 10px;
 }
+
+.star {
+    color: red;
+}
+
+.flags img {
+    max-width: 20px;
+}
