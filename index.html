@@ -24,11 +24,15 @@
                 </div>
                 <!-- cards -->
                 <ul class="cards" v-for="film in arrayRicerca">
+                    <li> <img :src="ricercaPoster(film)" alt=""> </li>
                     <li> Titolo: {{ film.title }} </li>
                     <li> Titolo in lingua originale: {{ film.original_title }} </li>
                     <!-- <li> Lingua originale: {{ film.original_language }} </li> -->
                     <!-- se a img/ e .png metto "" non si visualizza lingua quando non presente bandiera -->
-                    <li class="flags"><img :src=" 'img/' + film.original_language + '.png' " :alt="film.original_language"></li>
+                    <li class="flags" v-if="mieFlags.includes(film.original_language)">
+                        <img :src=" 'img/' + film.original_language + '.png' " :alt="film.original_language">
+                    </li>
+                    <li v-else> Lingua originale: {{ film.original_language }} </li>
                     <li> Voto: {{ film.vote_average }} </li>
                     <!-- migliorare visualizzaz stelle -->
                     <li class="star">
